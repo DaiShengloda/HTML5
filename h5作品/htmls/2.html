@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<title>动态字</title>
+<style type="text/css" rel="stylesheet">    
+	html { 
+		overflow: hidden; 
+	} 
+	body { 
+		background: none;
+		width: 100%; 
+		height: 100%; 
+		color: #fff; 
+	} 
+	#frm { 
+		position: absolute; 
+		height: 60%; 
+		width: 70%; 
+		left: 15%; 
+		top: 20%; 
+		font-size: 2em; 
+		font-weight: bold; 
+		font-family: verdana, arial; 
+		background: #4E8DB8; 
+		overflow: hidden; 
+		padding: 0.5em; 
+	} 
+	#frm span { 
+		position: relative; 
+		text-align: center; 
+		z-index: 1; 
+	} 
+	#mtxform { 
+		position: relative; 
+		z-index: 10; 
+	} 
+	.hidden{ 
+		visibility:hidden; 		
+	} 
+</style>
+</head>
+<body>
+    
+    <div id="frm">
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 16px; top: 190px;">-</span>        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 31px; top: 190px;">-</span>        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 69px; top: 190px;">y</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 46px; top: 190px;">b</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 107px; top: 190px;">A</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 64, 0); left: 132px; top: 190px;">l</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 143px; top: 190px;">l</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 64, 0); left: 154px; top: 190px;">o</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 176px; top: 190px;">y</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 214px; top: 190px;">T</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 64, 0); left: 236px; top: 190px;">e</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 64, 0); left: 258px; top: 190px;">a</span>
+        <span style="z-index: 2; position: absolute; color: rgb(255, 255, 255); left: 278px; top: 190px;">m</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 16px; top: 76px;">J</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 34px; top: 76px;">X</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 16px; top: 114px;">J</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 34px; top: 114px;">a</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 55px; top: 114px;">v</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 76px; top: 114px;">a</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 98px; top: 114px;">s</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 116px; top: 114px;">c</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 135px; top: 114px;">r</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 151px; top: 114px;">i</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 162px; top: 114px;">p</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 184px; top: 114px;">t</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 216px; top: 114px;">e</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 238px; top: 114px;">X</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 262px; top: 114px;">t</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 277px; top: 114px;">e</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 298px; top: 114px;">n</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 321px; top: 114px;">s</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 339px; top: 114px;">i</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 350px; top: 114px;">o</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 373px; top: 114px;">n</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 413px; top: 114px;">t</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 427px; top: 114px;">o</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 449px; top: 114px;">o</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 471px; top: 114px;">l</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 482px; top: 114px;">s</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 16px; top: 152px;">D</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 42px; top: 152px;">o</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 65px; top: 152px;">n</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 87px; top: 152px;">'</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 98px; top: 152px;">t</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 130px; top: 152px;">R</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 155px; top: 152px;">e</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 176px; top: 152px;">p</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 198px; top: 152px;">e</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 220px; top: 152px;">a</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 241px; top: 152px;">t</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 273px; top: 152px;">Y</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 297px; top: 152px;">o</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 318px; top: 152px;">u</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 342px; top: 152px;">r</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 358px; top: 152px;">s</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 376px; top: 152px;">e</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 398px; top: 152px;">l</span>        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 409px; top: 152px;">f</span>
+        <span style="z-index: 1; position: absolute; color: rgb(44, 44, 44); left: 422px; top: 152px;">!</span>
+    </div>
+    
+    
+    <form id="mtxform" name="mtxform"> 
+        <span id="inputext" class="hidden"> 
+        <textarea rows="6" cols="46" id="text" name="text"> 
+        JX
+        Javascript eXtension tools
+        Don't Repeat Yourself!
+        --by Alloy Team
+        </textarea>
+        </span> 
+    </form>   
+ 
+ 
+<script type="text/javascript">   
+var AnimText = function () { 
+	/* ==== private variables & methods ==== */ 
+	var stop = false; 
+	var frm, lineDelay, charDelay; 
+	var colorText, colorMatch, colorGhost, elapsedTime; 
+	var lineIndex = 0; 
+	var lineChar  = []; 
+	var animStack = []; 
+	var colorStack = []; 
+	/* ==== rgb color ==== */ 
+	function colorRGB (c) { 
+		return 'rgb(' 
+			+Math.round(Math.min(255, Math.max(0, c[0])))+',' 
+			+Math.round(Math.min(255, Math.max(0, c[1])))+',' 
+			+Math.round(Math.min(255, Math.max(0, c[2])))+')'; 
+	} 
+	/* ==== Easing functions ==== */ 
+	function Ease () {} 
+	Ease.prototype = { 
+		ease : function () { 
+			this.m += this.s; 
+			this.x0 += (this.d * this.m * .0025); 
+			if (this.m == 20) this.s = -1; 
+			return this.x0; 
+		}, 
+		init : function (x0, x1) { 
+			this.m = 0; 
+			this.s = 1; 
+			this.d = x1 - x0; 
+			this.x0 = x0; 
+		} 
+	} 
+ 
+	/* ==== Load Lines ==== */ 
+	function loadLines () { 
+		// read text from HTML form 
+		text = document.forms.mtxform.text.value.split("\n"); 
+		// loop through all lines 
+		for (var j = 0; j < text.length; j++) { 
+			var t = text[j]; 
+			if (t) { 
+				var n = t.length; 
+				lineChar[j] = []; 
+				// first pass: create characters capture RELATIVE offset coordinates 
+				for (var i = 0; i < n; i++) 
+					lineChar[j][i] = new Character(t.charAt(i), j); 
+				// second pass: convert to absolute position 
+				for (var i = 0, o; o = lineChar[j][i]; i++) { 
+					if (o.c == "|") { 
+						// remove spaces 
+						lineChar[j].splice(i, 1); 
+						frm.removeChild(o.o); 
+						i--; 
+					} else { 
+						// convert to absolute position and render 
+						o.o.style.position = "absolute"; 
+						o.o.style.color = colorRGB(colorText); 
+						o.moveHTML(); 
+						// push first line in animation stack 
+						if (j == 0) pushAnim (o, charDelay * i); 
+					} 
+				} 
+			} 
+		} 
+	} 
+	/* ==== Character Constructor ==== */ 
+	function Character (c, line) { 
+		if (c == " ") c = "|"; 
+		this.c = c; 
+		// create HTML element and append the the container 
+		this.o = document.createElement("span"); 
+		this.o.innerHTML = c; 
+		this.o.style.zIndex = 2; 
+		frm.appendChild(this.o); 
+		// capture relative offset positions ! 
+		this.x0 = this.o.offsetLeft; 
+		this.y0 = -this.o.offsetHeight * 1.5; 
+		this.x1 = this.x0; 
+		this.x2 = this.x0; 
+		this.y1 = (line + 1) * this.o.offsetHeight; 
+		this.y2 = frm.offsetHeight; 
+		this.mx = new Ease(); 
+		this.my = new Ease(); 
+		this.c0 = [colorText[0], colorText[1], colorText[2]]; 
+	} 
+	/* ==== Character functions ==== */ 
+	Character.prototype = { 
+		// ---- character animation ---- 
+		anim : function (i) { 
+			// temporization 
+			if (this.delay > 0) { 
+				if (elapsedTime) 
+					this.delay -= new Date().getTime() - elapsedTime; 
+			} else { 
+				// moving 
+				this.x0 = this.mx.ease(); 
+				this.y0 = this.my.ease(); 
+				this.moveHTML(); 
+				if (!this.my.m && !this.mx.m) { 
+					// remove from stack 
+					animStack.splice(i, 1); 
+					// remove dead characters 
+					if (this.off) frm.removeChild(this.o); 
+				} 
+			} 
+		}, 
+		// ----- color fading ------ 
+		color : function (i) { 
+			this.c0[0] += this.cr[0]; 
+			this.c0[1] += this.cr[1]; 
+			this.c0[2] += this.cr[2]; 
+			this.ci++; 
+			this.o.style.color = colorRGB(this.c0); 
+			if (this.ci >= this.cs) 
+				colorStack.splice(i, 1); 
+		}, 
+		// ----- HTML positioning ----- 
+		moveHTML : function () { 
+			this.o.style.left = Math.round(this.x0) + "px"; 
+			this.o.style.top  = Math.round(this.y0) + "px"; 
+		}, 
+		// ----- init color fading ------ 
+		colorFade : function (c1, steps) { 
+			this.cs = steps; 
+			this.cr = [(c1[0] - this.c0[0]) / steps, (c1[1] - this.c0[1]) / steps, (c1[2] - this.c0[2]) / steps]; 
+			if (this.cr[0] != 0 || this.cr[1] != 0 || this.cr[2] != 0){ 
+				this.ci = 0; 
+				colorStack.push (this); 
+			} 
+		} 
+	} 
+	/* ==== push character in the animation stack ==== */ 
+	function pushAnim (o, delay) { 
+		// init ease 
+		o.mx.init(o.x0, o.x1); 
+		o.my.init(o.y0, o.y1); 
+		o.delay = delay; 
+		// push stack 
+		animStack.push(o); 
+	} 
+	/* ==== next line ==== */ 
+	function nextLine () { 
+		if (lineIndex < lineChar.length - 1) { 
+			// display shadow text 
+			for (var i = 0, o; o = lineChar[lineIndex][i]; i++) { 
+				var s = o.o.cloneNode(true); 
+				s.style.zIndex = 1; 
+				s.style.color = colorRGB(colorGhost); 
+				frm.appendChild(s); 
+			} 
+			// matching next line characters 
+			for (var i = 0, t; t = lineChar[lineIndex + 1][i]; i++) { 
+				for (var j = 0, o; o = lineChar[lineIndex][j]; j++) { 
+					if (o.c == t.c) { 
+						// colors 
+						t.colorFade(colorMatch, o.match ? 1 : 40); 
+						t.match = true; 
+						// swap characters 
+						t.x0 = o.x0; 
+						t.y0 = o.y0; 
+						t.moveHTML(); 
+						// remove redundant character 
+						frm.removeChild(o.o); 
+						lineChar[lineIndex].splice(j, 1); 
+						break; 
+					} 
+				} 
+			} 
+			// take off redundant characters 
+			for (var i = 0, o; o = lineChar[lineIndex][i]; i++) { 
+				// set target position (off frame) 
+				o.y1 = frm.offsetHeight; 
+				o.off = true; 
+				o.match = false; 
+				o.colorFade (colorText, 40); 
+				// push in animation stack 
+				pushAnim (o, (lineDelay * .8) + charDelay * i); 
+			} 
+		} 
+		// push next line in animation stack 
+		lineIndex++; 
+		if (lineIndex < lineChar.length) { 
+			for (var i = 0, o; o = lineChar[lineIndex][i]; i++) 
+				pushAnim (o, lineDelay + charDelay * i); 
+		} 
+	} 
+ 
+	/* ==== main animation loop ==== */ 
+	function main() { 
+		//  characters 
+		var n = animStack.length; 
+		if (n) { 
+			var i = n; 
+			while (i--) 
+				animStack[i].anim(i); 
+		} else nextLine (); 
+		// colors 
+		var i = colorStack.length; 
+		while (i--) 
+			colorStack[i].color(i); 
+		// get elapsed time and loop 
+		elapsedTime = new Date().getTime(); 
+		setTimeout(main, 16); 
+	} 
+ 
+	/* //////////// ==== public methods ==== //////////// */ 
+	return { 
+		/* ==== initialize script ==== */ 
+		init : function (cont, t1, t2, c1, c2, c3) { 
+			// container 
+			frm = document.getElementById(cont); 
+			lineDelay = t1; 
+			charDelay = t2; 
+			colorText = c1; 
+			colorMatch = c2; 
+			colorGhost = c3; 
+			loadLines(); 
+			main(); 
+		}, 
+		changeText : function () { 
+			document.getElementById("show").className = ""; 
+			document.getElementById("inputext").className = "hidden"; 
+			lineChar  = []; 
+			animStack = []; 
+			colorStack = []; 
+			frm.innerHTML = ""; 
+			lineIndex = 0; 
+			elapsedTime = 0; 
+			loadLines(); 
+			frm.focus(); 
+		}
+	} 
+}(); 
+ 
+ 
+/* ==== init text ==== */ 
+onload = function () { 
+	AnimText.init("frm", 1500, 150, [255,255,255], [255,64,0], [44,44,44]); 
+} 
+</script>   
+</body>
+</html>

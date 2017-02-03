@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>h5作品集</title>
+<style>
+    *{margin:0px;padding:0px}	
+	ol{width:55%;margin:50px auto;padding:30px 80px;font-size:1.7em;font-weight:bold;border:1px solid #cccccc;color:#0063cc;}
+	ol li{margin-bottom:10px;border-bottom:1px solid #f2f2f2;}
+	ol a{text-decoration:none;color:#0063cc;}
+</style>
+<!--
+<script type="text/javascript" src="htmls/js/jquery-1.11.1.min.js"></script>
+-->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    
+    <ol>
+        <li><a href="htmls/3D盒子.html" target="_blank">3D盒子</a></li>
+        <li><a href="htmls/五子棋.html" target="_blank">五子棋</a></li>
+        <li><a href="htmls/火球.html" target="_blank">火球特效</a></li>
+        <li><a href="htmls/灯笼.html" target="_blank">灯笼</a></li>
+        <li><a href="htmls/雨滴.html" target="_blank">雨滴</a></li>
+    </ol>
+  
+<script>
+    $(function(){
+		$("a").hover(function(){
+			$(this).stop(false,false).animate({"padding-left":"30px"},800);
+		},function(){
+			$(this).stop(false,false).animate({"padding-left":"0px"},800);
+		});
+	});
+</script> 
+</body>
+</html>

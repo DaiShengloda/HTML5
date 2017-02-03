@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>火球</title>
+<style>
+    *{margin:0px;padding:0px;border:0px;}
+    canvas{
+		position:absolute;
+		left:0;
+		top:0;
+	    width:100%;
+		height:100%;
+		cursor:crosshair;
+		background-color:#111111;	
+	}
+</style>
+</head>
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+<script>
+window.onload=function(){
+		lor = '#111';   ////
+        gravity = 0.03;     ////
+        particleColor = '#f73';
+		
+		var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext('2d');
+		
+		//块级作用域
+		(function(){   
+			width=canvas.width=canvas.clientWidth;
+			height=canvas.height=canvas.clientHeight;
+			o={x:Math.floor(width/2),y:Math.floor(height/2)};    //全局对象
+			edge={top:-o.y,right:width-o.x,bottom:height-o.y,left:-o.x}; //全局对象
+		})();
+		
+		
+		//定义粒子
+		var particles={};  //对象
+		var newParticle=function(){   //单例模块模式--定义了全局函数借接口
+			var nextIndex=0;
+			return function(x,y,r,o,c,xv,yv,rv,ov){
+			    particles[++nextIndex]={    //对象方括号语法可访问变量属性、创建/修改属性
+					index:nextIndex,
+					x:x,
+					y:y,
+					r:r,
+					o:o,
+					c:c,     //颜色
+					xv:xv,
+					yv:yv,
+					rv:rv,
+					ov:ov
+				}
+			}
+		}();
+		
+		
+		//定义火球
+		var fireballs={};    //对象
+		var newFireballs=(function(){    //单例模块模式--定义了全局函数借接口
+			var nextIndex=0;
+			return function(x,y,xv,yv,life){
+			    fireballs[++nextIndex]={    //对象方括号语法可访问变量属性、创建/修改属性
+				    index:nextIndex,
+					x:x,
+					y:y,
+					xv:xv,
+					yv:yv,
+					life:life	
+				}
+			}
+		})();
+		
+		
+		//鼠标拖动发射火球		
+		//鼠标mousedown--杠杆起点
+		var charging=false, 
+		    pos1={x:0,y:0},    //起点距圆点距离
+		    showInstructions=true;
+		canvas.onmousedown=function(event){
+		    pos1.x=mouse.x;
+			pos1.y=mouse.y;
+			charging=true;
+			showInstructions=false;	
+		};
+		
+		
+		//鼠标mousemove--杠杆终点
+		var mouse={x:0,y:0,d:0};    //火球坐标和杠杠长度
+		canvas.onmousemove=function(event){
+			mouse.x=event.clientX-o.x;
+			mouse.y=event.clientY-o.y;
+			var dx=mouse.x-pos1.x,
+			    dy=mouse.y-pos1.y;
+			mouse.d=Math.sqrt(dx*dx+dy*dy);    //距离圆心距离
+		};
+		
+		
+		//鼠标mouseup--火球位置和生命
+		canvas.onmouseup=function(){
+			if (charging){
+			    newFireballs(    //应用模块模式
+				    mouse.x,
+					mouse.y,
+					(pos1.x-mouse.x)*0.03,
+				    (pos1.y-mouse.y)*0.03,
+					600
+				)
+				charging=false;	
+			}
+		};
+		
+	    
+		//火球运动动画
+		time=0;
+		//requsetAnimationFrame动画方法
+		requestAnimationFrame(loop=function(){ 
+		    
+			//绘制画 
+			ctx.setTransform(1,0,0,1,0,0);    
+			ctx.globalCompositeOperation="source-over";
+			ctx.fillStyle = "#111";
+			ctx.fillRect(0,0,width,height);
+			ctx.translate(o.x,o.y);
+			
+			//画杠杆
+		    if (charging){
+			    var c=Math.floor(30+mouse.d/2);
+				ctx.strokestyle="rgba("+c+","+c+","+c+",1)";
+				ctx.lineWidth=4;
+				ctx.beginPath();
+				ctx.moveTo(pos1.x,pos1.y);	  //杠杆起点
+				ctx.lineTo(mouse.x,mouse.y);  //杠杆终点
+				ctx.lineGap="round"; 
+				ctx.stroke();
+			}
+			
+			//判断showInstructions和time
+			if (showInstructions){    //默认火球起始位置
+			    pos1.x=-70;
+				pos1.y=-35;
+				if (time<10){
+				    var x=-70,
+					    y=-35,
+						r=30-time*2,
+						a=time/10;	
+				}else if(time<80){
+				    var x=(time-10)*2-70,
+                        y=(time-10)-35,
+                        r=10,
+                        a=1;	
+				}else if(time<90){
+				    var x=70,
+                        y=35,
+                        r=10+(time-80)*2,
+                        a=1-(time-80)/10;	
+				}else if(time<140){
+                    var x=70,
+                        y=35,
+                        r=30,
+                        a=0;
+                }
+				var dx=pos1.x-x,
+                    dy=pos1.y-y,
+                    d=Math.sqrt(dx*dx+dy*dy);
+				if (time<80&&time>10){
+                    ctx.globalCompositeOperation = 'source-over';
+                    //ctx.globalAlpha = 1;
+                    var c = Math.floor(30+d/2);
+                    ctx.strokeStyle = 'rgba('+c+','+c+','+c+',1)';
+                    ctx.lineWidth = 4;
+                    ctx.beginPath();
+                    ctx.moveTo(pos1.x,pos1.y);
+                    ctx.lineTo(x,y);
+                    ctx.lineCap = 'round';
+                    ctx.stroke();
+                }
+				
+				//默认圆圈
+			    if (time<140){
+                    ctx.globalCompositeOperation = 'source-over';
+                    ctx.globalAlpha = a;
+                    ctx.beginPath();
+                    ctx.arc(x,y,r,0,Math.PI*2);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#aaa';
+                    ctx.stroke();
+                }
+				if (time==80){
+                    newFireballs(
+                        x,
+                        y,
+                        dx*0.03,   //x方向速度
+                        dy*0.03,   //y方向速度
+                        240        //默认生命
+                    );
+                }
+				time = (time+1)%180;
+			}
+			
+			
+			//画火焰
+			ctx.globalCompositeOperation="lighter";
+			for(var i in particles){
+				var p=particles[i];
+				ctx.beginPath();
+				ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+				ctx.globalAlpha=1;
+				ctx.fillStyle=p.c;
+				ctx.fill();
+			}
+			
+			//火焰尾巴，运动效果
+			for(var i in particles){
+			    var p=particles[i];
+				p.x+=p.xv;
+				p.y+=p.yv;
+				p.r+=p.rv;
+				p.o+=p.ov;
+				if(p.r<0)delete particles[p.index];	
+			}
+			
+			
+			//
+			for(var i in fireballs){
+                f = fireballs[i];
+                var numParticles = Math.sqrt(f.xv*f.xv+f.yv*f.yv)/5;
+                if(numParticles<1)numParticles=1;
+                var numParticlesInt = Math.ceil(numParticles),
+                    numParticlesDif = numParticles/numParticlesInt;
+                for(var j=0;j<numParticlesInt;j++){
+                    newParticle(
+                        f.x-f.xv*j/numParticlesInt,
+                        f.y-f.yv*j/numParticlesInt,
+                        7,                      //半径
+                        numParticlesDif,
+                        particleColor,          //颜色
+                        Math.random()*0.6-0.3,
+                        Math.random()*0.6-0.3,
+                        -0.3,
+                        -0.05*numParticlesDif
+                    );
+               }
+               f.x += f.xv;
+               f.y += f.yv;
+               f.yv += gravity;
+			   
+			   //边界反弹
+               var boundary;
+               if (f.y<(boundary = edge.top+7)){
+                  f.y = boundary;
+                  f.yv *= -1;
+               }else if(f.y>(boundary = edge.bottom-7)){
+                  f.y = boundary;
+                  f.yv *= -1;
+               }
+               if (f.x>(boundary = edge.right-7)){
+                   f.x = boundary;
+                   f.xv *= -1;
+               }else if(f.x<(boundary = edge.left+7)){
+                   f.x = boundary;
+                   f.xv *= -1;
+               }
+               if(--f.life<0)delete fireballs[f.index];
+         }
+			
+		requestAnimationFrame(loop);  //内部循环调用
+		});
+		
+    }
+</script>
+</body>
+</html>
+();

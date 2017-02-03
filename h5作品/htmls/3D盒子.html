@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D盒子</title>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="styles/main.css"/>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript">
+    $(document).on("pageshow",function(){
+		$hei=$("#myDiv").width();
+		$("#myDiv").height($hei);
+		
+		$("#myDiv>div").height($hei).width($hei);
+		$("#myDiv img").height($hei).width($hei);
+		
+		$(".pic2").css({"left":-$hei+"px","top":"0px"});
+		$(".pic3").css({"left":"0px","top":-$hei+"px"});
+		$(".pic4").css({"left":"0px","top":$hei+"px"});
+		$(".pic5").css({"left":$hei+"px","top":"0px"});
+		$(".pic6").css({"left":"0","top":"0","transform":'translateZ('+$hei+'px)'});
+	});
+</script>
+</head>
+<body>
+    <div data-role="page">
+        <!--<div data-role="header"></div>-->
+        <div data-role="main">
+            <div id="myDiv">
+                <img src="images/5.jpg" class="pic1">
+                <div class="pic2"><img src="images/6.jpg"></div>
+                <div class="pic3"><img src="images/7.jpg"></div>
+                <div class="pic4"><img src="images/8.jpg"></div>
+                <div class="pic5"><img src="images/9.jpg"></div>
+                <div class="pic6"><img src="images/10.jpg"></div>
+            </div>
+        </div>
+        <!--<div data-role="footer"></div>-->
+    </div>
+
+</body>
+</html>

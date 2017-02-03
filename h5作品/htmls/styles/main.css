@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+/*3D盒子*/
+*{
+    margin:0px;
+	padding:0px;	
+}
+#myDiv{
+	width:20%;
+	margin:13% auto;
+	animation:mySec1 7s infinite;
+	position:relative;
+	transform-style:preserve-3d;
+	perspective:1000px;
+}
+@keyframes mySec1{
+	/*0%{top:0px;left:0px;transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+	25%{top:150px;left:0px;transform:rotateX(90deg) rotateY(0deg) rotateZ(0deg);}
+	50%{top:0px;left:0px;transform:rotateX(180deg) rotateY(0deg) rotateZ(0deg);}
+	75%{top:-150px;left:0px;transform:rotateX(270deg) rotateY(0deg) rotateZ(0deg);}
+	100%{top:0px;left:0px;transform:rotateX(360deg) rotateY(0deg) rotateZ(0deg);}*/
+	0%{top:0px;left:0px;transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+	20%{top:150px;left:150px;transform:rotateX(-140deg) rotateY(-140deg) rotateZ(100deg);}
+	40%{top:150px;left:0px;transform:rotateX(130deg) rotateY(20deg) rotateZ(210deg);}
+	60%{top:0px;left:0px;transform:rotateX(230deg) rotateY(-20deg) rotateZ(-90deg);}
+	80%{top:150px;left:0px;transform:rotateX(-30deg) rotateY(140deg) rotateZ(-290deg);}
+	80%{top:150px;left:0px;transform:rotateX(-120deg) rotateY(220deg) rotateZ(-360deg);}
+	100%{top:0px;left:0px;transform:rotateX(-360deg) rotateY(360deg) rotateZ(-360deg);}
+}
+
+#myDiv div{
+    position:absolute;
+	text-align:center;
+	color:#888888;
+}
+
+#myDiv img{
+	width:100%;
+	height:100%;
+}
+
+#myDiv .pic1{
+	opacity:0.7;
+}
+
+#myDiv .pic2{
+	transform:rotateY(90deg);
+	transform-origin:right;
+	animation:mySec2 5s;
+}
+@keyframes mySec2{
+	0%{left:-100%;top:0px;transform:rotateY(90deg);transform-origin:right;}
+	25%{left:-100%;top:0px;transform:rotateY(30deg);}
+	50%{left:-100%;top:0px;transform:translateX(-50px);}
+	75%{left:-100%;top:0px;transform:rotateY(-30deg);}
+	100%{left:-100%;top:0px;transform:rotateY(90deg);transform-origin:right;}
+}
+
+#myDiv .pic3{
+	transform:rotateX(-90deg);
+	transform-origin:bottom;
+	animation:mySec3 5s;
+}
+@keyframes mySec3{
+	0%{left:0;top:-100%;transform:rotateX(-90deg);transform-origin:bottom;}
+	25%{left:0;top:-100%;transform:rotateX(-30deg);}
+	50%{left:0;top:-100%;transform:translateY(-50px);}
+	75%{left:0;top:-100%;transform:rotateX(-10deg);}
+	100%{left:0;top:-100%;transform:rotateX(-90deg);transform-origin:bottom;}
+}
+
+#myDiv .pic4{
+	transform:rotateX(90deg);
+	transform-origin:top;
+	animation:mySec4 5s;
+}
+@keyframes mySec4{
+	0%{left:0;top:100%;transform:rotateX(90deg);transform-origin:top;}
+	25%{left:0;top:100%;transform:rotateX(30deg);}
+	50%{left:0;top:100%;transform:translateY(50px);}
+	75%{left:0;top:100%;transform:rotateX(30deg);}
+	100%{left:0;top:100%;transform:rotateX(90deg);transform-origin:top;}
+}
+
+#myDiv .pic5{
+	transform:rotateY(-90deg);
+	transform-origin:left;
+	animation:mySec5 5s;
+}
+@keyframes mySec5{
+	0%{left:100%;top:0px;transform:rotateY(-90deg);transform-origin:left;}
+	25%{left:100%;top:0px;transform:rotateY(-30deg);}
+	50%{left:100%;top:0px;transform:translateX(50px);}
+	75%{left:100%;top:0px;transform:rotateY(-30deg);}
+	100%{left:100%;top:0px;transform:rotateY(-90deg);transform-origin:left;}
+}
+
+#myDiv .pic6{
+	animation:mySec6 5s;
+}
+@keyframes mySec6{
+	0%{left:0;top:0px;transform:translateZ(100%);}
+	25%{left:0;top:0px;transform:translateZ(100%);}
+	50%{left:0;top:0px;transform:translateZ(100%);}
+	75%{left:0;top:0px;transform:translateZ(100%);}	
+	100%{left:0;top:0px;transform:translateZ(100%);}
+}
+
